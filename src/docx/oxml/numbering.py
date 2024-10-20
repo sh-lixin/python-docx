@@ -11,6 +11,21 @@ from docx.oxml.xmlchemy import (
     ZeroOrOne,
 )
 
+class CT_Lvl(BaseOxmlElement):
+    """
+    ``<w:lvl>`` element, which identifies a level in a list definition.
+    """
+    start = OneAndOnlyOne('w:start')
+    numFmt = OneAndOnlyOne('w:numFmt')
+    lvlText = OneAndOnlyOne('w:lvlText')
+
+
+class CT_AbstractNum(BaseOxmlElement):
+    """
+    ``<w:abstractNum>`` element, which identifies a list definition.
+    """
+    lvl = ZeroOrMore('w:lvl')
+
 
 class CT_Num(BaseOxmlElement):
     """``<w:num>`` element, which represents a concrete list definition instance, having
