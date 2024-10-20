@@ -95,6 +95,7 @@ class CT_Numbering(BaseOxmlElement):
     numbering.xml."""
 
     num = ZeroOrMore("w:num", successors=("w:numIdMacAtCleanup",))
+    abstractNum = ZeroOrMore("w:abstractNum")
 
     def add_num(self, abstractNum_id):
         """Return a newly added CT_Num (<w:num>) element referencing the abstract
